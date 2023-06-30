@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Students List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Students Management</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Tạo học viên mới</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+      <h1 style="display: inline-block; margin-bottom: 20px">
+        Danh sách học viên
+      </h1>
+      <a
+        href="/create"
+        class="btn btn-primary"
+        style="display: inline-block; float: right"
+        >Thêm học viên</a
+      >
+      <br />
+
+      <div class="dropdown" style="display: inline-block; margin-bottom: 20px">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Chọn theo lớp
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% if(className) { %> <% className.forEach((item) => { %>
+          <a class="dropdown-item" href="/class/<%= item %>"><%= item %></a>
+          <% }) %> <% } %>
+        </div>
+      </div>
+      <a href="/sort" class="btn btn-success">Xếp theo điểm số</a>
+      <br />
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Lớp</th>
+            <th scope="col">Điểm</th>
+            <th scope="col">Đánh giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach((item, index) => { %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><a href="/detail/<%= item._id %>"><%= item.name %></a></td>
+            <td><%= item.class %></td>
+            <td><%= item.practice %></td>
+            <td><%= item.rate %></td>
+            <td>
+              <a href="/edit/<%= item._id %>" class="btn btn-success">Sửa</a>
+            </td>
+            <td>
+              <a href="/delete/<%= item._id %>" class="btn btn-danger">Xóa</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Student Detail</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Students Management</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/create">Tạo học viên mới</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+      <h1 style="display: inline-block; margin-bottom: 20px">
+        Thông tin chi tiết học viên: <%= data.name %>
+      </h1>
+      <a
+        href="/"
+        class="btn btn-primary"
+        style="display: inline-block; float: right"
+        >Danh sách học viên</a
+      >
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Tên:</td>
+            <td><%= data.name %></td>
+          </tr>
+          <tr>
+            <td>Lớp:</td>
+            <td><%= data.class %></td>
+          </tr>
+          <tr>
+            <td>Điểm lý thuyết:</td>
+            <td><%= data.theory %></td>
+          </tr>
+          <tr>
+            <td>Điểm thực hành:</td>
+            <td><%= data.practice %></td>
+          </tr>
+          <tr>
+            <td>Đánh giá:</td>
+            <td><%= data.rate %></td>
+          </tr>
+          <tr>
+            <td>Mô tả:</td>
+            <td><%= data.des %></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/edit/<%= data._id %>" class="btn btn-success">Chỉnh sửa</a>
+      <a href="/" class="btn btn-success">Thoát</a>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
